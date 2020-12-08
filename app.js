@@ -9,14 +9,14 @@ var audioCanvas;
 //Visual variables
 let planet = [];
 var cnv;
-
+var env;
 
 
 function setup(){
     cnv = createCanvas(768,500);
     cnv.position(0,0);
     cnv.parent('visual-canvas');
-    for(let i = 0; i<5; i++){
+    for(let i = 0; i<10; i++){
         let x = random(width);
         let y = random(height);
         let r = random(10,40);
@@ -29,6 +29,10 @@ function setup(){
     audioCanvas.position(770,20);
     audioCanvas.parent('audio-canvas');
 
+    env = new p5.Env();
+    env.setADSR(0.04, 0.12, 0.5, 1);
+    env.setRange(0.8, 0);
+
     wave = new p5.Oscillator();
     slider = createSlider(100, 1200, 440);
     slider.position(800,425);
@@ -36,7 +40,7 @@ function setup(){
     wave.setType('sine');
     wave.start();
     wave.freq(440);
-    wave.amp(0);
+    wave.amp(env);
 
     button = createButton('Play/Pause');
     button.position(950,425)
@@ -69,18 +73,22 @@ function draw(){
     //Audio draw
     wave.freq(slider.value());
     if (playing) {
-       // background(255, 0, 255);
+       noFill();
     } else {
-        //background(51);
+        background(100);
     }
 }
 
 function toggle() {
     if (playing = !playing) {
       wave.amp(0.5, 1);
+      
     } else {
       wave.amp(0, 1);
+      
     }
+    // Env function of ADSR
+    //env.play();
   }
 
 class Planet{
