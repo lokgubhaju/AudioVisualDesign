@@ -1,6 +1,37 @@
-.visual{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
+html,body {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+div{
+    position: relative;
+}
+#type {
+    position: absolute;
+    left: 45%;
+    font-size: 50px;
+
+}
+
+#title{
+    position: absolute;
+    font-size: 90px;
+    left: 40%;
+    top: 50px;
+}
+#planetName {
+    position: absolute;
+    font-size: 50px;
+    right: 50px;
+    margin-top: 10%;
+    color: rgb(218, 113, 27);
+}
+
+.click{
+    position: absolute;
+    font-size: 45px;
+    text-decoration: none;
+    left: 45%;
+    top: 500px;
 }

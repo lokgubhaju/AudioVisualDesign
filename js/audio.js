@@ -62,7 +62,7 @@ function mousePressed(){
 }
 
 function draw(){
-    background(0);
+    background(255);
     cnv.position(0,0);
     
     for(let i = 0; i< planet.length; i++){
@@ -116,3 +116,4 @@ class Planet{
         ellipse(this.x,this.y,this.r * 2);  
     }
 }
+
